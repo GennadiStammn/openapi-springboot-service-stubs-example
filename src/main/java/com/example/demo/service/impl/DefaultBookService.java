@@ -27,7 +27,7 @@ public class DefaultBookService implements com.example.demo.service.BookService 
 
     @Override
     public BookDTO getOneBook(String id) {
-        return new BookDTO(id, "ISBN111111");
+        return new BookDTO("some title", "ISBN111111").id(id);
     }
 
     @Override

@@ -28,9 +28,8 @@ public class BookController implements com.example.springreactiveopenapicodegen.
 
     @Override
     public Mono<ResponseEntity<SuccessResponseDTO>> createBook(
-            @Parameter(name = "BookDTO", description = "", required = true, schema = @Schema(description = ""))
-            @Valid @RequestBody Mono<com.example.springreactiveopenapicodegen.dto.BookDTO> bookDTO,
-            @Parameter(hidden = true) final ServerWebExchange exchange
+            Mono<com.example.springreactiveopenapicodegen.dto.BookDTO> bookDTO,
+            final ServerWebExchange exchange
     ) {
         return bookDTO
                 .map(
@@ -41,9 +40,8 @@ public class BookController implements com.example.springreactiveopenapicodegen.
 
     @Override
     public Mono<ResponseEntity<SuccessResponseDTO>> deleteBook(
-            @Parameter(name = "id", description = "", required = true, schema = @Schema(description = ""))
-            @PathVariable("id") String id,
-            @Parameter(hidden = true) final ServerWebExchange exchange
+            String id,
+            final ServerWebExchange exchange
     ) {
         return Mono.just(ResponseEntity
                 .ok()
@@ -52,7 +50,7 @@ public class BookController implements com.example.springreactiveopenapicodegen.
 
     @Override
     public Mono<ResponseEntity<SuccessResponseDTO>> getAllBook(
-            @Parameter(hidden = true) final ServerWebExchange exchange
+            final ServerWebExchange exchange
     ) {
         return Mono.just(ResponseEntity
                 .ok()
@@ -61,9 +59,8 @@ public class BookController implements com.example.springreactiveopenapicodegen.
 
     @Override
     public Mono<ResponseEntity<SuccessResponseDTO>> getOneBook(
-            @Parameter(name = "id", description = "", required = true, schema = @Schema(description = ""))
-            @PathVariable("id") String id,
-            @Parameter(hidden = true) final ServerWebExchange exchange
+            String id,
+            final ServerWebExchange exchange
     ) {
         return Mono.just(ResponseEntity
                 .ok()
@@ -72,11 +69,9 @@ public class BookController implements com.example.springreactiveopenapicodegen.
 
     @Override
     public Mono<ResponseEntity<SuccessResponseDTO>> updateBook(
-            @Parameter(name = "id", description = "", required = true, schema = @Schema(description = ""))
-            @PathVariable("id") String id,
-            @Parameter(name = "BookDTO", description = "", required = true, schema = @Schema(description = ""))
-            @Valid @RequestBody Mono<com.example.springreactiveopenapicodegen.dto.BookDTO> bookDTO,
-            @Parameter(hidden = true) final ServerWebExchange exchange
+            String id,
+            Mono<com.example.springreactiveopenapicodegen.dto.BookDTO> bookDTO,
+            final ServerWebExchange exchange
     ) {
         return bookDTO
                 .map(b -> ResponseEntity.created(URI.create("/api/v1/book/" + b.getId()))

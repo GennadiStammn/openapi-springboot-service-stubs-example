@@ -108,6 +108,7 @@
 								<!--suppress UnresolvedMavenProperty -->
 								<!-- <additionalModelTypeAnnotations>@lombok.Builder @lombok.NoArgsConstructor @lombok.AllArgsConstructor</additionalModelTypeAnnotations> -->
 								<useTags>true</useTags>
+								<useSpringBoot3>true</useSpringBoot3>
 							</configOptions>
 						</configuration>
 					</execution>
